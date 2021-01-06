@@ -1,0 +1,22 @@
+{
+  "name": "magento-searchcriteria-builder",
+  "version": "1.0.0",
+  "description": "Search criteria builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-am-ok-dont-worry/magento-searchcriteria-builder.git"
+  },
+  "author": "pytel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i-am-ok-dont-worry/magento-searchcriteria-builder/issues"
+  },
+  "homepage": "https://github.com/i-am-ok-dont-worry/magento-searchcriteria-builder#readme",
+  "dependencies": {
+    "qs": "^6.9.4"
+  }
+}
