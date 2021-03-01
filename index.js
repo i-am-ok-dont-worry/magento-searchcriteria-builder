@@ -38,7 +38,8 @@ class SearchCriteria {
             }
         };
 
-        return qs.stringify(output, { arrayFormat: 'bracket' });
+        const stringified = qs.stringify(output, { arrayFormat: 'bracket' });
+        return stringified === '' ? 'searchCriteria=' : stringified;
     }
 }
 
