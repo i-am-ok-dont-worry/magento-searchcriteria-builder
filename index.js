@@ -1,4 +1,4 @@
-import qs from 'qs';
+const qs = require('qs');
 
 class SearchCriteria {
     filterGroups = [];
