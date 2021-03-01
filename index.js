@@ -33,8 +33,8 @@ class SearchCriteria {
             searchCriteria: {
                 filterGroups: this.filterGroups,
                 ...(this.sortOrders.length && { sortOrders: this.sortOrders }),
-                pageSize: this.pageSize,
-                currentPage: this.currentPage
+                ...(this.pageSize && { pageSize: this.pageSize }),
+                ...(this.currentPage && { currentPage: this.currentPage })
             }
         };
 
