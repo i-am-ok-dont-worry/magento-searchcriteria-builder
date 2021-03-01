@@ -2,8 +2,8 @@ const qs = require('qs');
 
 class SearchCriteria {
     filterGroups = [];
-    pageSize = 50;
-    currentPage = 0;
+    pageSize = undefined;
+    currentPage = undefined;
     sortOrders = [];
 
     applyFilter (field, value, conditionType) {
