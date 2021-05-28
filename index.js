@@ -27,32 +27,6 @@ class SearchCriteria {
         const sortOrders = { field, direction: direction || 'asc' };
         this.sortOrders.push(sortOrders);
     }
-    
-    static buildFromSearchQuery (rawQuery) {
-      try {
-        const searchCriteria = new SearchCriteria();
-        const query = JSON.parse(decodeURIComponent(rawQuery));
-        const appliedFilters = query._appliedFilters;
-        const appliedSort = query._appliedSort;
-
-        if (appliedFilters && appliedFilters instanceof Array) {
-          appliedFilters.forEach(filter => {
-            const condition = typeof filter.value === 'string' ? 'eq' : Object.keys(filter.value)[0];
-            const value = typeof filter.value === 'string' ? filter.value : filter.value[condition];
-            searchCriteria.applyFilter(filter.attribute, value, condition);
-          });
-        }
-
-        if (appliedSort && appliedSort instanceof Array) {
-          const [sortOption] = appliedSort;
-          searchCriteria.applySort(sortOption.field, sortOption.options);
-        }
-
-        return searchCriteria;
-      } catch (e) {
-        return null;
-      }
-    }
 
     static buildFromSearchQuery (rawQuery) {
       try {
