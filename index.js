@@ -27,7 +27,7 @@ class SearchCriteria {
         const sortOrders = { field, direction: direction || 'asc' };
         this.sortOrders.push(sortOrders);
     }
-    
+
     static buildFromSearchQuery (rawQuery) {
       try {
         const searchCriteria = new SearchCriteria();
@@ -37,13 +37,13 @@ class SearchCriteria {
 
         if (appliedFilters && appliedFilters instanceof Array) {
           appliedFilters.forEach(filter => {
-            const condition = typeof filter.value === 'string' ? 'eq' : Object.keys(filter.value)[0];
-            const value = typeof filter.value === 'string' ? filter.value : filter.value[condition];
+            const condition = typeof filter.value !== 'object' ? 'eq' : Object.keys(filter.value)[0];
+            const value = typeof filter.value !== 'object' ? filter.value : filter.value[condition];
             searchCriteria.applyFilter(filter.attribute, value, condition);
           });
         }
 
-        if (appliedSort && appliedSort instanceof Array) {
+        if (appliedSort && appliedSort instanceof Array && appliedSort.length > 0) {
           const [sortOption] = appliedSort;
           searchCriteria.applySort(sortOption.field, sortOption.options);
         }
